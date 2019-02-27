@@ -14,12 +14,14 @@ class App extends Component {
       <Router>
         <div className="container">
           <div className="App">
-            <Header />
+            <Header branding="Playground test bench"/>
             <Switch>
                <Route exact path="/" component={Home}/>
                <Route exact path="/about" component={About} />
                <Route exact path="/about/:id" component={About} />
-               <Route exact path="/signin" component={Signin} />
+               <Route
+                 exact path="/signin"
+                 render={(props) => <Signin {...props} isWorking={'antonio'} />} /> 
                <Route component={NotFound} />
             </Switch>
             <Footer />

@@ -11,7 +11,6 @@ class  Signin extends Component {
     name: ''
   }
 
-
   componentDidMount(){
     axios
     .get(
@@ -30,7 +29,7 @@ class  Signin extends Component {
     e.preventDefault();
     this.componentDidMount()
     // Redirect to home page
-    //this.props.history.push('/' + `${this.state.username}`);
+    this.props.history.push('/');
  };
 
   getInput = (event) => {
@@ -54,6 +53,7 @@ class  Signin extends Component {
   render() {
     return (
       <React.Fragment>
+        <h1>{console.log(this.props)}</h1>
       <Information username="This is the Playground sign-in page coming from information component" />
       <form>
         <div className="form-group signin">
