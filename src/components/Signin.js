@@ -8,17 +8,18 @@ class  Signin extends Component {
     username: '',
     email: '',
     password: '',
-    name: 'Default'
+    name: ''
   }
 
 
   componentDidMount(){
     axios
     .get(
-      `https://cors-anywhere.herokuapp.com/https://react-api-ascalmon.herokuapp.com/information/2`)
+      `https://cors-anywhere.herokuapp.com/https://react-api-ascalmon.herokuapp.com/users/${this.state.username}`)
     .then(res => {
-     console.log(res.data);
-     this.setState({name: res.data.name});
+     //console.log(res.data);
+     if (res.data.length === 1)
+     this.setState({username: res.data.username});
    })
    .catch(err => {
      console.log(err);
@@ -27,8 +28,9 @@ class  Signin extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-
-
+    this.componentDidMount()
+    // Redirect to home page
+    //this.props.history.push('/' + `${this.state.username}`);
  };
 
   getInput = (event) => {
@@ -45,7 +47,8 @@ class  Signin extends Component {
         return;
       default:
         return;
-    }
+    };
+    //console.log('Username: ', this.state.username, 'Email: ',this.state.email, 'Password: ', this.state.password );
   };
 
   render() {

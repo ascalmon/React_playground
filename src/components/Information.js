@@ -4,7 +4,6 @@ import React from 'react'
 //Functional Component
 const Information = (props) => {
 
-  const texto = props.username;
   //console.log(props);
   return (
       <React.Fragment>
