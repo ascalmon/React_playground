@@ -8,8 +8,8 @@ const Information = (props) => {
   //console.log(props);
   return (
       <React.Fragment>
-      <div className="container">
-        <p>{texto}</p>
+      <div className="container " style={{textAlign:'center', color:'red'}}>
+        <p>{props.username}</p>
       </div>
       </React.Fragment>
 

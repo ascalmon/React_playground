@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Information from './Information';
 import axios from 'axios';
+import '../App.css';
 
-class  Users extends Component {
+class  Signin extends Component {
   state = {
     username: '',
     email: '',
@@ -25,6 +26,7 @@ class  Users extends Component {
  };
 
   onSubmit = (e) => {
+    e.preventDefault();
 
 
  };
@@ -49,19 +51,18 @@ class  Users extends Component {
   render() {
     return (
       <React.Fragment>
-      <Information username="Eu fiz funcionar" />;
+      <Information username="This is the Playground sign-in page coming from information component" />
       <form>
-        <h1>{this.state.name}</h1>
-        <div className="form-group">
+        <div className="form-group signin">
             <input type="text" className="form-control" id="username" placeholder="Enter Username" onChange={this.getInput} />
         </div>
-        <div className="form-group">
+        <div className="form-group signin">
             <input type="text" className="form-control" id="email" placeholder="Enter Email" onChange={this.getInput} />
         </div>
-        <div className="form-group">
+        <div className="form-group signin">
             <input type="text" className="form-control" id="password" placeholder="Enter Password" onChange={this.getInput} />
         </div>
-        <button type="submit" className="btn btn-primary" onClick={this.onSubmit}>Sign-up
+        <button type="submit" className="btn btn-primary signin_btn" onClick={this.onSubmit}>Sign-in
         </button>
       </form>
       </React.Fragment>
@@ -69,4 +70,4 @@ class  Users extends Component {
   }
 }
 
-export default Users;
+export default Signin;
