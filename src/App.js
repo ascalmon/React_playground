@@ -31,7 +31,7 @@ class App extends Component {
       <Router>
         <div className="header">
           <div className="App">
-            <Header onChange={this.onChange} value={this.state.title} branding="Playground test bench"/>
+            <Header onChange={this.onChange} value={this.state.title} branding="Playground"/>
             <Switch>
                <Route exact path="/"
                 render={(props) => <Home {...props} value={this.state.title} />} />

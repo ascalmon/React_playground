@@ -15,6 +15,13 @@ class Header extends Component {
     //handleChange = this.handleChange.bind(this);
   }
 
+  updateValue(val) {
+  this.setState((val) => {
+    // Important: read `state` instead of `this.state` when updating.
+    return {value: this.state.value}
+  });
+}
+
 
   handleChange(e){
   this.setState({ value: e.target.value });
@@ -27,10 +34,18 @@ class Header extends Component {
     if (this.state.value !== '') {
       console.log('Search ', this.state.value);
       this.props.onChange(this.state.value);
+      document.getElementById('search').value = '';
+      this.updateValue();
+      //this.setState({value: ''});
+      //this.props.onChange('');
     }
+    //this.props.onChange('');
+    this.updateValue();
+    //this.setState({value: ''});
   }
 
   render(){
+    console.log(this.props);
     const handleChange = this.handleChange.bind(this);
     const onSubmit = this.onSubmit.bind(this);
 
@@ -46,7 +61,7 @@ class Header extends Component {
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link to="/" className="nav-link">
-                <i className="fas fa-home"></i>Home
+                <i className="fas fa-home style={{ cursor: 'pointer', float: 'right', color: 'red' }}"></i>Home
               </Link>
             </li>
             <li className="nav-item">
@@ -61,7 +76,7 @@ class Header extends Component {
             </li>
           </ul>
           <form className="form-inline my-2 my-lg-0">
-            <input className="form-control mr-sm-2" onChange={handleChange} type="search" placeholder="Search" aria-label="Search" />
+            <input className="form-control mr-sm-2" id="search" onChange={handleChange} type="search" placeholder="Search" aria-label="Search" />
             <button className="btn btn-outline-success my-2 my-sm-0" onClick={onSubmit}type="submit">Search</button>
           </form>
         </div>
