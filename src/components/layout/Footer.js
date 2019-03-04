@@ -1,13 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import '../../App.css';
 
 //Functional Component
 const Footer = (props) => {
   //console.log(props);
   const { owner } = props;
   return (
-    <nav className="navbar navbar-expand-sm navbar-dark bg-primary mb-3 py-0">
-      <div className="container">
+    <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-3 py-0">
+      <div className="row">
         <a href="/" className="navbar-brand">{owner}</a>
         <div>
           <ul className="navbar-nav mr-auto">

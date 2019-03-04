@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom'; // Productio
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'; // Production
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import About from './components/pages/About';
@@ -9,19 +9,37 @@ import NotFound from './components/pages/NotFound';
 import './App.css';
 
 class App extends Component {
+
+  constructor(){
+    super()
+    this.state = {
+      title: ''
+    }
+  }
+
+  onChange(text){
+    this.setState({
+      title: text
+    });
+  }
+
+
   render() {
+    this.onChange = this.onChange.bind(this);
+
     return (
       <Router>
-        <div className="container">
+        <div className="header">
           <div className="App">
-            <Header branding="Playground test bench"/>
+            <Header onChange={this.onChange} value={this.state.title} branding="Playground test bench"/>
             <Switch>
-               <Route exact path="/" component={Home}/>
+               <Route exact path="/"
+                render={(props) => <Home {...props} value={this.state.title} />} />
                <Route exact path="/about" component={About} />
                <Route exact path="/about/:id" component={About} />
                <Route
                  exact path="/signin"
-                 render={(props) => <Signin {...props} isWorking={'antonio'} />} /> 
+                 render={(props) => <Signin {...props} isWorking={'antonio'} />} />
                <Route component={NotFound} />
             </Switch>
             <Footer />
