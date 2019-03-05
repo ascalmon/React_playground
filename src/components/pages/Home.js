@@ -19,6 +19,7 @@ class Home extends Component {
     .get(
       `https://cors-anywhere.herokuapp.com/https://react-api-ascalmon.herokuapp.com/users/${username}`)
     .then(res => {
+      //console.log(res.request)
      if(res.data.length === 1 && username !== this.state.username){
         console.log(res.data);
         this.setState({username: res.data[0].username});
@@ -38,7 +39,8 @@ class Home extends Component {
 
   render() {
 
-    //console.log('Home', this.props.value);
+
+    console.log('Home', this.props);
     if(this.props.value !== '' && this.props.value !== this.state.last_access){
       //console.log('Home', this.props.value);
       this.searchData(this.props.value);
@@ -46,7 +48,7 @@ class Home extends Component {
     return (
       <div>
         <h1 className="display-4">Playground Home Page</h1>
-        <h4>Username:{this.state.username}</h4>
+      <h4>Username:{this.state.username}</h4>
         <h4>Email:{this.state.email}</h4>
         <p className="lead">{this.state.username} Home Page</p>
         <p className="text-secondary">Version 1.0.0</p>

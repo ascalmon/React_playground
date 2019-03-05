@@ -13,7 +13,8 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      title: ''
+      title: '',
+      sign: ''
     }
   }
 
@@ -23,9 +24,16 @@ class App extends Component {
     });
   }
 
+  onSignin(text){
+    this.setState({
+      sign: text
+    });
+  }
+
 
   render() {
     this.onChange = this.onChange.bind(this);
+    this.onSignin = this.onSignin.bind(this);
 
     return (
       <Router>
@@ -35,11 +43,12 @@ class App extends Component {
             <Switch>
                <Route exact path="/"
                 render={(props) => <Home {...props} value={this.state.title} />} />
-               <Route exact path="/about" component={About} />
+              <Route exact path="/about"
+                render={(props) => <About {...props} sinal={this.state.sign}/>} />
                <Route exact path="/about/:id" component={About} />
                <Route
                  exact path="/signin"
-                 render={(props) => <Signin {...props} isWorking={'antonio'} />} />
+                 render={(props) => <Signin onChange={this.onSignin} sinal={this.state.sign}/>} />
                <Route component={NotFound} />
             </Switch>
             <Footer />

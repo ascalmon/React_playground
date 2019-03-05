@@ -11,6 +11,8 @@ class  Signin extends Component {
     name: ''
   }
 
+
+
   componentDidMount(){
     axios
     .get(
@@ -27,9 +29,11 @@ class  Signin extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.componentDidMount()
+    this.componentDidMount();
+    console.log('Signin');
+    this.props.onChange(this.state.username);
     // Redirect to home page
-    this.props.history.push('/');
+    //this.props.history.push('/');
  };
 
   getInput = (event) => {
@@ -51,6 +55,7 @@ class  Signin extends Component {
   };
 
   render() {
+    console.log(this.props.onChange);
     return (
       <React.Fragment>
         <h1>{console.log(this.props)}</h1>

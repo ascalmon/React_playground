@@ -45,7 +45,7 @@ class Header extends Component {
   }
 
   render(){
-    console.log(this.props);
+    //console.log(this.props);
     const handleChange = this.handleChange.bind(this);
     const onSubmit = this.onSubmit.bind(this);
 
@@ -61,23 +61,23 @@ class Header extends Component {
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link to="/" className="nav-link">
-                <i className="fas fa-home style={{ cursor: 'pointer', float: 'right', color: 'red' }}"></i>Home
+                <i className="fas fa-home" style={{ color: '#ffc107' }}></i>Home
               </Link>
             </li>
             <li className="nav-item">
               <Link to="/about" className="nav-link">
-                <i className="fas fa-question"></i>About
+                <i className="fas fa-question" style={{ color: '#ffc107' }}></i>About
               </Link>
             </li>
             <li className="nav-item">
               <Link to="/signin" className="nav-link">
-                <i className="fas fa-sign-in-alt"></i>Sign-in
+                <i className="fas fa-sign-in-alt" style={{ color: '#ffc107' }}></i>Sign-in
               </Link>
             </li>
           </ul>
           <form className="form-inline my-2 my-lg-0">
             <input className="form-control mr-sm-2" id="search" onChange={handleChange} type="search" placeholder="Search" aria-label="Search" />
-            <button className="btn btn-outline-success my-2 my-sm-0" onClick={onSubmit}type="submit">Search</button>
+          <button className="btn btn-outline-warning my-2 my-sm-0" onClick={onSubmit}type="submit">Search</button>
           </form>
         </div>
       </nav>
