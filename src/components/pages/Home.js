@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import uuid from 'uuid';
 
 class Home extends Component {
   constructor(props){
@@ -37,6 +38,44 @@ class Home extends Component {
  };
 
 
+//  <table style={tableStyle}>
+//    <tbody>
+//        <tr style={rowStyle}>
+//            <td style={leftColumnStyle}>Battery</td>
+//            <td><StatsBar/></td>
+//         </tr>
+//    </tbody>
+// </table>
+
+
+ // createTable = () => {
+   // let table = document.createElement('table');
+   // let tr = table.appendChild(document.createElement('tr'));
+   // let td = tr.appendChild(document.createElement('td'));
+   // let data = td.appendChild(document.createTextNode('Column - ' + 1));
+   // console.log(table, table.toString());
+   //
+   // return table.toString();
+   // //div.innerHTML = table;
+
+//
+//   let table = [];
+//   let final = [];
+//
+//   // Outer loop to create parent
+//   for (let i = 0; i < 3; i++) {
+//     let children = []
+//     //Inner loop to create children
+//     for (let j = 0; j < 5; j++) {
+//       children.push(<td>{`Column ${j + 1}`}</td>)
+//     }
+//     //Create the parent and add the children
+//     table.push(<tr>{children}</tr>);
+//   }
+//   final.push(<tbody>{table}</tbody>);
+//   return table
+// }
+
   render() {
 
 
@@ -48,9 +87,10 @@ class Home extends Component {
     return (
       <div>
         <h1 className="display-4">Playground Home Page</h1>
-      <h4>Username:{this.state.username}</h4>
+        <h4>Username:{this.state.username}</h4>
         <h4>Email:{this.state.email}</h4>
-        <p className="lead">{this.state.username} Home Page</p>
+
+        <p className="lead">Home Page</p>
         <p className="text-secondary">Version 1.0.0</p>
       </div>
     );

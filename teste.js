@@ -1,12 +1,30 @@
 
-var str = 'sahsagsjsdssdvnsmvsdfnsxdfnsdfmsdnfdfmndsfmdfnd';
-let j;
-for (let i = 0; i < str.length; i++){
-  console.log(str[i]);
-  if (str[i] == 'x'){
-    j = i
-    break;
-  }
+var http = require('http');
 
-}
-console.log('j =',j);
+// http.get(
+//   'http://react-api-ascalmon.herokuapp.com/users/ascalmon',
+//    function(res) {
+//      var text = '';
+//      res.on('data', function(chunk) {
+//        text += chunk;
+//      });
+//      res.on('end', function() {
+//        console.log(text);
+//      });
+//    }).on('error', function(e) {
+//      console.log('Got error: ' + e.message);
+// });
+// Arrow function version
+http.get(
+  'http://react-api-ascalmon.herokuapp.com/users/ascalmon',
+   res => {
+     var text = '';
+     res.on('data', chunk => {
+       text += chunk;
+     });
+     res.on('end', () => {
+       console.log(text);
+     });
+   }).on('error', e => {
+     console.log('Got error: ' + e.message);
+});
